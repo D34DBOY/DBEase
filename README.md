@@ -28,7 +28,7 @@ pip install faker
 ```
 
 ## Sample Information
-In this project, we can create the required tables and update the database by entering information in the database.ini file.
+In this project, we can create the required tables and update the database by entering information in the `database.ini` file.
 ```bash
 [user]
 id=1
@@ -49,4 +49,32 @@ userid=1245555
     ```python
     from database.database import DataBase
     db = DataBase()
+    ```
+
+2. **Creating fake information:**
+    ```python
+    from faker import Faker
+    from random import random,randint
+    
+    first_name,last_name = Faker().name().split(" ")
+    age = Faker().date_of_birth()
+    address = Faker().address()
+    money = randint(122555,999999)+random()
+    ```
+
+3. ** Enter basic information: **
+   ```python
+   table = db.nametable
+   db.table = table.user
+   db.data = dict(first_name=first_name,last_name=last_name,age=age,address=address,money=money)
+   db.insert
+    ```
+   
+5. ** Check for existence: **
+    ```python
+    db.query = dict(first_name=first_name)
+    if db.check:
+        print(db.get)
+    else:
+        print("not found",db.query)
     ```
