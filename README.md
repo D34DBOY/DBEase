@@ -62,7 +62,7 @@ userid=1245555
     money = randint(122555,999999)+random()
     ```
 
-3. ** Enter basic information: **
+3. **Enter basic information:**
    ```python
    table = db.nametable
    db.table = table.user
@@ -70,7 +70,7 @@ userid=1245555
    db.insert
     ```
    
-5. ** Check for existence: **
+5. **Check for existence:**
     ```python
     db.query = dict(first_name=first_name)
     if db.check:
