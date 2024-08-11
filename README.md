@@ -20,11 +20,27 @@ To run this project, you need to have the following Python libraries installed:
 - `dataclasses` (part of Python standard library)
 - `sqlite3` (part of Python standard library)
 - `configparser` (part of Python standard library)
-- 
 You can install the `Faker` library using pip:
 
 ```bash
 pip install faker
+```
+
+## Sample Information
+In this project, we can create the required tables and update the database by entering information in the database.ini file.
+```bash
+[user]
+id=1
+first_name=Mehran
+last_name=ahmadi
+age=21/12
+address=kermanshah
+money=1254.35
+
+[admin]
+id=0
+name=yarnovin
+userid=1245555
 ```
 
 ### Usage
