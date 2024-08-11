@@ -22,3 +22,10 @@ You can install the `Faker` library using pip:
 
 ```bash
 pip install faker
+
+
+### Usage
+1. **Initialize the Database:**
+    ```python
+    from database.database import DataBase
+    db = DataBase()
