@@ -20,6 +20,7 @@ To run this project, you need to have the following Python libraries installed:
 - `dataclasses` (part of Python standard library)
 - `sqlite3` (part of Python standard library)
 - `configparser` (part of Python standard library)
+
 You can install the `Faker` library using pip:
 
 ```bash
