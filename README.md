@@ -1,80 +1,116 @@
-# Project Overview
+# DBEase
 
-This project demonstrates basic data manipulation and database operations using the `Faker` library and a custom `DataBase` class. The project generates random user data, inserts it into a database, and performs various queries.
+DBEase is a Python module designed to simplify working with SQLite databases. It provides an easy-to-use interface for creating and managing tables based on a configuration file, without needing to write SQL commands.
 
-## Purpose
+## Features
 
-This project serves several purposes:
+- Automatically creates SQLite tables based on a `database.ini` configuration file.
+- Supports basic CRUD (Create, Read, Update, Delete) operations.
+- Infers column types from the configuration file.
 
-1. **Generate Random Data:** Useful for testing applications and databases with simulated data.
-2. **Database Management:** Demonstrates how to insert and query data in a simple database setup.
-3. **Learning and Experimentation:** Acts as a learning tool for working with random data and basic database operations.
+## Installation
 
-## Requirements
+No installation is required beyond ensuring you have Python and SQLite. Simply include the `Database` class in your project.
 
-To run this project, you need to have the following Python libraries installed:
+## Configuration
 
-- `Faker`
-- `random` (part of Python standard library)
-- `datetime` (part of Python standard library)
-- `dataclasses` (part of Python standard library)
-- `sqlite3` (part of Python standard library)
-- `configparser` (part of Python standard library)
+The `database.ini` file defines the tables and columns for the database. If this file does not exist, it will be created with default content.
 
-You can install the `Faker` library using pip:
+### Example `database.ini`
 
-```bash
-pip install faker
-```
-
-## Sample Information
-In this project, we can create the required tables and update the database by entering information in the `database.ini` file.
-```bash
+```ini
 [user]
-id=1
-first_name=Mehran
-last_name=ahmadi
-age=21/12
-address=kermanshah
-money=1254.35
+first_name = Mohammad
+last_name = Mohammadi
+username = Aytola
+password = TestPassword
+age = 21
+register = 08/12/2024,12:16:11
 
 [admin]
-id=0
-name=yarnovin
-userid=1245555
+first_name = Mohammad
+last_name = Mohammadi
+username = Aytola
+password = TestPassword
+```
+## Adding New Tables or Columns
+To add new tables or columns:
+
+Edit `database.ini`: Open the `database.ini` file and add your new tables or columns. Ensure the syntax is correct.
+Delete the Existing Database File: Delete the existing `DataBase.db` file if it exists. This is necessary because the database will be recreated based on the updated `database.ini` file.
+Re-run the Script: When you run the script again, the `DataBase.db` file will be recreated with the new tables and columns defined in `database.ini`.
+
+## Usage
+
+### Importing and Connecting
+
+```python
+    from your_module import Database  # Replace `your_module` with the actual module name
+
+    # Create a Database instance and connect
+    db = Database('DataBase.db')
+    connection = db.connect()
 ```
 
-### Usage
-1. **Initialize the Database:**
-    ```python
-    from database.database import DataBase
-    db = DataBase()
-    ```
+## Creating Tables
 
-2. **Creating fake information:**
-    ```python
-    from faker import Faker
-    from random import random,randint
-    
-    first_name,last_name = Faker().name().split(" ")
-    age = Faker().date_of_birth()
-    address = Faker().address()
-    money = randint(122555,999999)+random()
-    ```
+Tables will be created automatically based on the `database.ini` file when you connect to the database. If tables already exist, they will not be recreated
 
-3. **Enter basic information:**
-   ```python
-   table = db.nametable
-   db.table = table.user
-   db.data = dict(first_name=first_name,last_name=last_name,age=age,address=address,money=money)
-   db.insert
-    ```
-   
-5. **Check for existence:**
-    ```python
-    db.query = dict(first_name=first_name)
-    if db.check:
-        print(db.get)
-    else:
-        print("not found",db.query)
-    ```
+## Performing CRUD Operations
+
+### Inserting Data
+
+```python
+    db.table = 'user'
+    db.data = {'first_name': 'Mehran', 'last_name': 'Mohammadi', 'username': 'YarNovin', 'password': 'Testpassword', 'age': 29, 'register': '08/12/2024,12:16:11'}
+    row_id = db.insert
+    print(f"Inserted row ID: {row_id}")
+```
+
+### Querying Data
+
+```python
+db.query = {'username': 'YarNovin'}
+records = db.get
+for record in records:
+    print(record)
+```
+
+### Checking for Records
+
+```python
+exists = db.check
+print(f"Records exist: {exists}")
+```
+
+### Retrieving All Data
+
+```python
+all_records = db.all
+for record in all_records:
+    print(record)
+```
+
+### Updating Data
+
+```python
+db.query = {'username': 'YarNovin'}
+db.data = {'password': 'NewPassword'}
+db.set
+```
+
+### Deleting Data
+
+```python
+db.query = {'username': 'YarNovin'}
+db.delete
+```
+
+## Notes
+
+- Ensure the `database.ini` file is correctly configured before running the script.
+- To apply changes to the database schema, modify the `database.ini` file and delete the existing `DataBase.db` file. Re-run the script to recreate the database with the updated schema.
+
+## License
+
+This project is licensed under the MIT License.
