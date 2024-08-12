@@ -1,6 +1,8 @@
 from . import connect
 from dataclasses import make_dataclass
-myclient = connect.Database('DataBase.db').connect()
+import os
+
+myclient = connect.Database(os.path.join(os.getcwd(), 'DataBase.db')).connect()
 
 class DataBase:
     def __init__(self, table: str = None, query: dict = None, data: dict = None):
