@@ -8,7 +8,6 @@ setup(
     description="This is a program designed to facilitate communication with the database, preventing unnecessary congestion in the source.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/D34DBOY/DBEase",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
