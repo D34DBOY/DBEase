@@ -1,7 +1,27 @@
 import sqlite3
 import configparser
+import os
+
+config_path = os.path.join(os.getcwd(), 'database.ini')
+
+if not os.path.exists(config_path):
+    with open(config_path, 'w') as config_file:
+        config_file.write("[user]\n")
+        config_file.write("first_name = Mohammad\n")
+        config_file.write("last_name = Mohammadi\n")
+        config_file.write("username = Aytola\n")
+        config_file.write("password = TestPassword\n")
+        config_file.write("age = 21\n")
+        config_file.write("register = 08/12/2024,12:16:11\n")
+        config_file.write("\n")
+        config_file.write("[admin]\n")
+        config_file.write("first_name = Mohammad\n")
+        config_file.write("last_name = Mohammadi\n")
+        config_file.write("username = Aytola\n")
+        config_file.write("password = TestPassword\n")
+
 config = configparser.ConfigParser()
-config.read('database.ini')
+config.read(config_path)
 
 class Database:
     def __init__(self, db_path: str):
