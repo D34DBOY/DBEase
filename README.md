@@ -98,14 +98,13 @@ db.query = {'username': 'YarNovin'}
 db.data = {'password': 'NewPassword'}
 db.set
 ```
-
+ 
 ### Deleting Data
 
 ```python
 db.query = {'username': 'YarNovin'}
 db.delete
 ```
-
 
 ## Notes
 
