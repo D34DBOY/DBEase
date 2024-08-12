@@ -45,7 +45,7 @@ Re-run the Script: When you run the script again, the `DataBase.db` file will be
 ### Importing and Connecting
 
 ```python
-    from DBEase import database  # Replace `DBEase` with the actual module name
+    from dbease import database  # Replace `DBEase` with the actual module name
 
     # Create a Database instance and connect
     db = database()
