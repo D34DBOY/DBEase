@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dbease",
-    version="1.0", 
+    version="1.1", 
     author="Mohammad Mohammadi Bijaneh", 
     author_email="hiostad6@gmail.com", 
     description="This is a program designed to facilitate communication with the database, preventing unnecessary congestion in the source.",
