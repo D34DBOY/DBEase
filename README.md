@@ -45,11 +45,10 @@ Re-run the Script: When you run the script again, the `DataBase.db` file will be
 ### Importing and Connecting
 
 ```python
-    from your_module import Database  # Replace `your_module` with the actual module name
+    from DBEase import database  # Replace `DBEase` with the actual module name
 
     # Create a Database instance and connect
-    db = Database('DataBase.db')
-    connection = db.connect()
+    db = database()
 ```
 
 ## Creating Tables
@@ -61,7 +60,8 @@ Tables will be created automatically based on the `database.ini` file when you c
 ### Inserting Data
 
 ```python
-    db.table = 'user'
+    table = db.nametable
+    db.table = table.user
     db.data = {'first_name': 'Mehran', 'last_name': 'Mohammadi', 'username': 'YarNovin', 'password': 'Testpassword', 'age': 29, 'register': '08/12/2024,12:16:11'}
     row_id = db.insert
     print(f"Inserted row ID: {row_id}")
@@ -105,6 +105,7 @@ db.set
 db.query = {'username': 'YarNovin'}
 db.delete
 ```
+
 
 ## Notes
 
